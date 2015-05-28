@@ -90,7 +90,7 @@ When we use the `fly` command we will target this Concourse API using `fly -t tu
 ### 01 - Hello World task
 
 ```
-cd 01_task_hello_world
+cd task_hello_world
 fly -t tutorial execute -c task_hello_world.yml
 ```
 
@@ -158,7 +158,7 @@ As your tasks and wrapper scripts build up into complex pipelines you will appre
 
 -	Give your task files and wrapper shell scripts the same base name
 
-In the `01_task_hello_world` folder you can see two files:
+In the `task_hello_world` folder you can see two files:
 
 -	`task_show_uname.yml`
 -	`task_show_uname.sh`
@@ -184,7 +184,7 @@ platform: linux
 image: docker:///busybox
 
 inputs:
-- name: 01_task_hello_world
+- name: task_hello_world
   path: .
 
 run:
@@ -197,7 +197,7 @@ In order for a task to run a wrapper script, it must be given access to the wrap
 
 In Concourse these are `inputs` to a task.
 
-Given that we are running the task directly from the `fly` CLI, and we're running it from our host machine inside the `01_task_hello_world` folder, then the current host machine folder will be uploaded to Concourse and made available as an input called `01_task_hello_world`.
+Given that we are running the task directly from the `fly` CLI, and we're running it from our host machine inside the `task_hello_world` folder, then the current host machine folder will be uploaded to Concourse and made available as an input called `task_hello_world`.
 
 Later when we look at Jobs with inputs, tasks and outputs we'll return to passing `inputs` into tasks within a Job.
 
@@ -205,13 +205,13 @@ Consider the `inputs:` snippet above:
 
 ```yaml
 inputs:
-- name: 01_task_hello_world
+- name: task_hello_world
   path: .
 ```
 
 This is saying:
 
-1.	I want to receive an input folder called `01_task_hello_world`
+1.	I want to receive an input folder called `task_hello_world`
 2.	I want it to be placed in the folder `.` (that is, the root folder of the task when its running)
 
 By default, without `path:` an input will be placed in a folder with the same name as the input itself.
@@ -228,7 +228,7 @@ run:
 ### 02 - Hello World job
 
 ```
-cd ../02_job_hello_world
+cd ../job_hello_world
 fly -t tutorial configure -c pipeline.yml
 ```
 
@@ -266,6 +266,10 @@ Clicking the top-left "Home" icon will show the status of our pipeline.
 
 ### 03 - Tasks extracted into resources
 
+```sh
+cd ../resource_job
+```
+
 It is easy to iterate on a job's tasks by configuring them in the `pipeline.yml` as above. Eventually you might want to colocate a job task with one of the resources you are already pulling in.
 
 This is a little convoluted example for our "hello world" task, but let's assume the task we want to run is the one from "01 - Hello World task" above. It's stored in a git repo.
@@ -280,7 +284,7 @@ resources:
     uri: https://github.com/drnic/concourse-tutorial.git
 ```
 
-Now we can consume that resource in our job. Update it to:
+Now we can consume that resource in our job:
 
 ```yaml
 jobs:
@@ -289,19 +293,22 @@ jobs:
   plan:
   - get: resource-tutorial
   - task: hello-world
-    file: resource-tutorial/01_task_hello_world/task_hello_world.yml
+    file: resource-tutorial/task_hello_world/task_hello_world.yml
 ```
 
-Our `plan:` specifies that first we need to `get` the resource `resource-tutorial`.
+Our `plan` specifies that first we need to `get` the resource `resource-tutorial`.
 
-Second we use the `01_task_hello_world/task_hello_world.yml` file from `resource-tutorial` as the task configuration.
+Second we use the `task_hello_world/task_hello_world.yml` file from `resource-tutorial` as the task configuration.
 
-Apply the updated pipeline using `fly c -c pipeline.yml`.
+Apply the updated pipeline:
+
+```sh
+fly c -c pipeline.yml
+```
 
 Or run the pre-created pipeline from the tutorial:
 
-```
-cd ../03_resource_job
+```sh
 fly -t tutorial c -c pipeline.yml
 ```
 
@@ -317,7 +324,7 @@ The first step fetches the git repository for these training materials and tutor
 
 This resource can now be an input to any task in the job build plan.
 
-The second step runs a user-defined task. We give the task a name `hello-world` which will be displayed in the UI output. The task itself is not described in the pipeline. Instead it is described in `01_task_hello_world/task_hello_world.yml` from the `resource-tutorial` input.
+The second step runs a user-defined task. We give the task a name `hello-world` which will be displayed in the UI output. The task itself is not described in the pipeline. Instead it is described in `task_hello_world/task_hello_world.yml` from the `resource-tutorial` input.
 
 There is a benefit and a downside to abstracting tasks into YAML files outside of the pipeline.
 

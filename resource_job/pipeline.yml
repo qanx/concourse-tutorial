@@ -5,7 +5,7 @@ jobs:
   plan:
   - get: resource-tutorial
   - task: hello-world
-    file: resource-tutorial/01_task_hello_world/task_hello_world.yml
+    file: resource-tutorial/task_hello_world/task_hello_world.yml
 
 resources:
 - name: resource-tutorial
