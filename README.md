@@ -62,15 +62,15 @@ Tutorials
 ---------
 
 1. [Hello World task](#01---hello-world-task)
-2. Hello World job
-3. Resource job
-4. XXX
-5. XXX
-6. Triggers
-7. My Resource jobs
-8. Pipeline jobs
-9. Task inputs
-10. Deploy app
+2. [Hello World job](#02---job-hello-world)
+3. [Resource job](#03---tasks-extracted-into-resources)
+4. [Get job output in terminal](#04---get-job-output-in-terminal)
+5. [Trigger a Job via the Concourse API](#05---trigger-a-job-via-the-concourse-api)
+6. [Triggers](#06---triggering-jobs---the-time-resource)
+7. [My Resource jobs](#07---my-resource-jobs)
+8. [Pipeline jobs](#08---pipeline-jobs)
+9. [Task inputs](#09---task-inputs)
+10. [Deploy app](#10---deploy-app)
 11. [Run Tests Before Deployment](run_tests_before_deploy)
 12. Versions via S3
 13. Push Docker Image
@@ -375,6 +375,14 @@ fly -t tutorial watch -j job-hello-world
 "resources are checked every minute, but there's a shorter (10sec) interval for determining when a build should run; time resource is to just ensure a build runs on some rough periodicity; we use it to e.g. continuously run integration/acceptance tests to weed out flakiness" - alex
 
 The net result is that a timer of `2m` will trigger every 2 to 3 minutes.
+
+### 07 - My Resource jobs
+
+### 08 - Pipeline jobs
+
+### 09 - Task inputs
+
+### 10 - Deploy app
 
 ### 20 - Available concourse resources
 
