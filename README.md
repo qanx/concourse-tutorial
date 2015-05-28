@@ -3,6 +3,35 @@ Concourse Tutorial
 
 Learn to use https://concourse.ci with this linear sequence of tutorials. Learn each concept that builds on the previous concept.
 
+Tutorials TOC
+-------------
+
+Before working through the tutorials, please make sure concourse and vagrant are installed and concourse is correctly targeted. For instructions, please go through the [Getting Started](#getting-started) section.
+
+1. [Hello World task](#01---hello-world-task)
+2. [Hello World job](#02---job-hello-world)
+3. [Resource job](#03---tasks-extracted-into-resources)
+4. [Get job output in terminal](#04---get-job-output-in-terminal)
+5. [Trigger a Job via the Concourse API](#05---trigger-a-job-via-the-concourse-api)
+6. [Triggers](#06---triggering-jobs---the-time-resource)
+7. [My Resource jobs](#07---my-resource-jobs)
+8. [Pipeline jobs](#08---pipeline-jobs)
+9. [Task inputs](#09---task-inputs)
+10. [Deploy app](#10---deploy-app)
+11. [Run Tests Before Deployment](run_tests_before_deploy)
+12. [Versions via S3](versions_via_s3)
+13. [Push Docker Image](push_docker_image)
+14. [Pull Docker Image](pull_docker_image)
+15. [GitHub Release Input](github_release_input)
+16. [Run Concourse on BOSH lite AWS](run_concourse_on_bosh_lite_aws)
+17. [bosh.io](bosh_io)
+18. [`bosh deploy`](bosh_deploy)
+19. [BOSH Manifest Spiff Merge](bosh_manifest_spiff_merge)
+20. [Spiff Merge Redis to BOSH lite](spiff_merge_redis_to_bosh_lite)
+21. [Dummy Resource](dummy_resource)
+22. [Dummy Resource Docker Image](dummy_resource_docker_image)
+23. [Multi-jobs BOSH Micro Build](multi_jobs_bosh_micro_build)
+
 Getting started
 ---------------
 
@@ -57,35 +86,6 @@ targets:
 When we use the `fly` command we will target this Concourse API using `fly -t tutorial`.
 
 > @alexsuraci: I promise you'll end up liking it more than having an implicit target state :) Makes reusing commands from shell history much less dangerous (rogue fly configure can be bad)
-
-Tutorials
----------
-
-1. [Hello World task](#01---hello-world-task)
-2. [Hello World job](#02---job-hello-world)
-3. [Resource job](#03---tasks-extracted-into-resources)
-4. [Get job output in terminal](#04---get-job-output-in-terminal)
-5. [Trigger a Job via the Concourse API](#05---trigger-a-job-via-the-concourse-api)
-6. [Triggers](#06---triggering-jobs---the-time-resource)
-7. [My Resource jobs](#07---my-resource-jobs)
-8. [Pipeline jobs](#08---pipeline-jobs)
-9. [Task inputs](#09---task-inputs)
-10. [Deploy app](#10---deploy-app)
-11. [Run Tests Before Deployment](run_tests_before_deploy)
-12. Versions via S3
-13. Push Docker Image
-14. Pull Docker Image
-15. GitHub Release Input
-16. Run Concourse on BOSH
-17. bosh.io
-18. bosh deploy
-19. BOSH Manifest Spiff Merge
-20. Spiff Merge Redis to BOSH lite
-21. Dummy Resource
-22. Dummy Resource Docker Image
-23. Multi-jobs BOSH Micro Build
-
-Note: Tutorials beyond \#10 are included in the tutorial's README.
 
 ### 01 - Hello World task
 
@@ -384,7 +384,9 @@ The net result is that a timer of `2m` will trigger every 2 to 3 minutes.
 
 ### 10 - Deploy app
 
-### 20 - Available concourse resources
+To continue through the tutorials, please refer to the [TOC](#tutorials-toc).
+
+### Appendix - Available concourse resources
 
 https://github.com/concourse?query=resource
 
