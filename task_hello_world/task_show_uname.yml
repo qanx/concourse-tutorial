@@ -2,7 +2,7 @@ platform: linux
 image: docker:///busybox
 
 inputs:
-- name: 01_task_hello_world
+- name: task_hello_world
   path: .
 
 run:
