@@ -20,7 +20,7 @@ Once the page loads in your browser, click to download the `fly` CLI appropriate
 
 ![cli](http://cl.ly/image/1r462S1m1j1H/fly_cli.png)
 
-Once downloaded, copy the `fly` binary into your path (`$PATH`), such as `/usr/local/bin` or `~/bin`. Don't forget to also make it executable. For example, 
+Once downloaded, copy the `fly` binary into your path (`$PATH`), such as `/usr/local/bin` or `~/bin`. Don't forget to also make it executable. For example,
 ```
 mv ~/Downloads/fly /usr/local/bin/fly
 chmod 0755 /usr/local/bin/fly
@@ -60,6 +60,32 @@ When we use the `fly` command we will target this Concourse API using `fly -t tu
 
 Tutorials
 ---------
+
+1. Hello World task
+2. Hello World job
+3. Resource job
+4. XXX
+5. XXX
+6. Triggers
+7. My Resource jobs
+8. Pipeline jobs
+9. Task inputs
+10. Deploy app
+11. [Run Tests Before Deployment](run_tests_before_deploy)
+12. Versions via S3
+13. Push Docker Image
+14. Pull Docker Image
+15. GitHub Release Input
+16. Run Concourse on BOSH
+17. bosh.io
+18. bosh deploy
+19. BOSH Manifest Spiff Merge
+20. Spiff Merge Redis to BOSH lite
+21. Dummy Resource
+22. Dummy Resource Docker Image
+23. Multi-jobs BOSH Micro Build
+
+Note: Tutorials beyond \#10 are included in the tutorial's README.
 
 ### 01 - Hello World task
 
