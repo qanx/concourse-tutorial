@@ -61,7 +61,7 @@ When we use the `fly` command we will target this Concourse API using `fly -t tu
 Tutorials
 ---------
 
-1. [Hello World task](#hello-world-task)
+1. [Hello World task](#section01)
 2. Hello World job
 3. Resource job
 4. XXX
@@ -87,7 +87,7 @@ Tutorials
 
 Note: Tutorials beyond \#10 are included in the tutorial's README.
 
-### hello-world-task
+### <a href="#section01" />01 - Hello World task
 
 ```
 cd 01_task_hello_world
